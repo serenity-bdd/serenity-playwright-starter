@@ -20,7 +20,7 @@
         <maven.compiler.target>17</maven.compiler.target>
 
         <!-- Core versions -->
-        <serenity.version>5.3.3</serenity.version>
+        <serenity.version>5.3.7</serenity.version>
         <playwright.version>1.58.0</playwright.version>
         <junit.version>6.0.3</junit.version>
         <assertj.version>3.27.7</assertj.version>
@@ -34,12 +34,23 @@
         <parallel.tests>4</parallel.tests>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.serenity-bdd</groupId>
+                <artifactId>serenity-bom</artifactId>
+                <version>${serenity.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Serenity Playwright Integration -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-playwright</artifactId>
-            <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -47,7 +58,6 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
-            <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -55,7 +65,6 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-junit5</artifactId>
-            <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
 
